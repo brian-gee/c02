@@ -15,6 +15,12 @@ class HomeKitManager: NSObject, ObservableObject, HMHomeManagerDelegate {
     @Published var vocDensity: String = "TVOC:\n--"
     @Published var temperature: String = "Temp:\n--"
     @Published var humidity: String = "Humidity:\n--"
+    @Published var isCO2Visible: Bool = true
+    @Published var isTemperatureVisible: Bool = true
+    @Published var isHumidityVisible: Bool = true
+    @Published var isPM25Visible: Bool = true
+    @Published var isVOCVisible: Bool = true
+    @Published var isNO2Visible: Bool = true
     
     private var homeManager: HMHomeManager = HMHomeManager()
     private let selectedHomeKey = "SelectedHomeIdentifier"
@@ -74,7 +80,7 @@ class HomeKitManager: NSObject, ObservableObject, HMHomeManagerDelegate {
     
     private func refreshAirQualityValues() {
         guard let accessory = self.selectedAccessory else {
-//            clearSensorValues()
+            //            clearSensorValues()
             self.selectedAccessoryInfo = "No Accessory Selected"
             return
         }

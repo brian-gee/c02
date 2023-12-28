@@ -4,37 +4,69 @@ import HomeKit
 struct ContentView: View {
     @ObservedObject var homeKitManager = HomeKitManager()
     @State private var showingSelectionView = false
+    @State private var isMenuOpen: Bool = false
     
-    // Define the grid layout
-    private var gridLayout: [GridItem] = Array(repeating: .init(.flexible(), spacing: 10), count: 2)
+    private var gridLayout: [GridItem] = Array(repeating: .init(.flexible(), spacing: 15), count: 2)
     
     var body: some View {
         NavigationView {
-            VStack {
-                // LazyVGrid to display the sensor readings
-                LazyVGrid(columns: gridLayout, spacing: 10) {
-                    SensorReadingView(reading: homeKitManager.co2Level)
-                    SensorReadingView(reading: homeKitManager.temperature)
-                    SensorReadingView(reading: homeKitManager.humidity)
-                    SensorReadingView(reading: homeKitManager.pm25Density)
-                    SensorReadingView(reading: homeKitManager.vocDensity)
-                    SensorReadingView(reading: homeKitManager.no2Density)
+            ZStack {
+                VStack {
+                    // LazyVGrid to display sensor readings
+                    LazyVGrid(columns: gridLayout, spacing: 20) {
+                        if homeKitManager.isCO2Visible {
+                            SensorReadingView(reading: homeKitManager.co2Level)
+                        }
+                        if homeKitManager.isTemperatureVisible {
+                            SensorReadingView(reading: homeKitManager.temperature)
+                        }
+                        if homeKitManager.isHumidityVisible {
+                            SensorReadingView(reading: homeKitManager.humidity)
+                        }
+                        if homeKitManager.isPM25Visible {
+                            SensorReadingView(reading: homeKitManager.pm25Density)
+                        }
+                        if homeKitManager.isVOCVisible {
+                            SensorReadingView(reading: homeKitManager.vocDensity)
+                        }
+                        if homeKitManager.isNO2Visible {
+                            SensorReadingView(reading: homeKitManager.no2Density)
+                        }
+                    }
+                    .padding(.horizontal)
+                    
+                    Button(action: {
+                        showingSelectionView.toggle()
+                    }) {
+                        Text("Select Home and Accessory")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.blue.opacity(0.7))
+                            .cornerRadius(8)
+                    }
+                    .padding()
                 }
-                .padding(.horizontal)
-                
-                // Button to show selection view
-                Button(action: {
-                    showingSelectionView.toggle()
+                .navigationBarTitle("Brian's Air Monitor", displayMode: .inline)
+                .navigationBarItems(leading: Button(action: {
+                    withAnimation {
+                        self.isMenuOpen.toggle()
+                    }
                 }) {
-                    Text("Select Home and Accessory")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue.opacity(0.7))
-                        .cornerRadius(8)
+                    Image(systemName: "line.horizontal.3") // Hamburger icon
+                })
+                
+                // Side Menu
+                if isMenuOpen {
+                    GeometryReader { geometry in
+                        SideMenuView(isCO2Visible: $homeKitManager.isCO2Visible,
+                                     isTemperatureVisible: $homeKitManager.isTemperatureVisible,
+                                     isHumidityVisible: $homeKitManager.isHumidityVisible,
+                                     isPM25Visible: $homeKitManager.isPM25Visible,
+                                     isVOCVisible: $homeKitManager.isVOCVisible,
+                                     isNO2Visible: $homeKitManager.isNO2Visible)
+                    }
                 }
-                .padding()
             }
-            .navigationBarTitle("Brian's Air Monitor", displayMode: .inline)
         }
         .sheet(isPresented: $showingSelectionView) {
             VStack {
@@ -72,7 +104,6 @@ struct ContentView: View {
             }
         }
     }
-    
     struct SensorReadingView: View {
         let reading: String
         
@@ -87,6 +118,29 @@ struct ContentView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.white, lineWidth: 2) // Optional: Adds a border
                 )
+        }
+    }
+    
+    struct SideMenuView: View {
+        @Binding var isCO2Visible: Bool
+        @Binding var isTemperatureVisible: Bool
+        @Binding var isHumidityVisible: Bool
+        @Binding var isPM25Visible: Bool
+        @Binding var isVOCVisible: Bool
+        @Binding var isNO2Visible: Bool
+        
+        var body: some View {
+            VStack(alignment: .leading) {
+                Toggle("CO2 Level", isOn: $isCO2Visible)
+                Toggle("Temperature", isOn: $isTemperatureVisible)
+                Toggle("Humidity", isOn: $isHumidityVisible)
+                Toggle("PM2.5 Density", isOn: $isPM25Visible)
+                Toggle("VOC Density", isOn: $isVOCVisible)
+                Toggle("NO2 Density", isOn: $isNO2Visible)
+                Spacer()
+            }
+            .padding()
+            .background(.gray)
         }
     }
 }
