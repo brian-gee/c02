@@ -9,12 +9,12 @@ class HomeKitManager: NSObject, ObservableObject, HMHomeManagerDelegate {
     @Published var selectedAccessoryInfo: String = "Select an Accessory"
     @Published var sensorReadings: [SensorReading] = []
     // Separate properties for each sensor type
-    @Published var co2Level: String = "CO2: --"
-    @Published var no2Density: String = "NOx: --"
-    @Published var pm25Density: String = "PM2.5: --"
-    @Published var vocDensity: String = "TVOC: --"
-    @Published var temperature: String = "Temp: --"
-    @Published var humidity: String = "Humidity: --"
+    @Published var co2Level: String = "CO2:\n--"
+    @Published var no2Density: String = "NOx:\n--"
+    @Published var pm25Density: String = "PM2.5:\n--"
+    @Published var vocDensity: String = "TVOC:\n--"
+    @Published var temperature: String = "Temp:\n--"
+    @Published var humidity: String = "Humidity:\n--"
     
     private var homeManager: HMHomeManager = HMHomeManager()
     private let selectedHomeKey = "SelectedHomeIdentifier"
