@@ -11,14 +11,33 @@
 		D39CD1B42B3509400090A586 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39CD1B32B3509400090A586 /* ContentView.swift */; };
 		D39CD1B62B3509410090A586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39CD1B52B3509410090A586 /* Assets.xcassets */; };
 		D39CD1B92B3509410090A586 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39CD1B82B3509410090A586 /* Preview Assets.xcassets */; };
+		D39CD1C02B350AD10090A586 /* HomeKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39CD1BF2B350AD10090A586 /* HomeKitManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D36E96702B35DF1E0031A4F8 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		D36E96532B3526AA0031A4F8 /* c02.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = c02.entitlements; sourceTree = "<group>"; };
+		D36E965A2B35DF1D0031A4F8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		D36E965C2B35DF1D0031A4F8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		D39CD1AE2B3509400090A586 /* c02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = c02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D39CD1B12B3509400090A586 /* c02App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = c02App.swift; sourceTree = "<group>"; };
 		D39CD1B32B3509400090A586 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D39CD1B52B3509410090A586 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D39CD1B82B3509410090A586 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D39CD1BF2B350AD10090A586 /* HomeKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitManager.swift; sourceTree = "<group>"; };
+		D39CD1C42B350D620090A586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,10 +51,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D36E96592B35DF1D0031A4F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D36E965A2B35DF1D0031A4F8 /* WidgetKit.framework */,
+				D36E965C2B35DF1D0031A4F8 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D39CD1A52B3509400090A586 = {
 			isa = PBXGroup;
 			children = (
 				D39CD1B02B3509400090A586 /* c02 */,
+				D36E96592B35DF1D0031A4F8 /* Frameworks */,
 				D39CD1AF2B3509400090A586 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,8 +80,11 @@
 		D39CD1B02B3509400090A586 /* c02 */ = {
 			isa = PBXGroup;
 			children = (
+				D36E96532B3526AA0031A4F8 /* c02.entitlements */,
+				D39CD1C42B350D620090A586 /* Info.plist */,
 				D39CD1B12B3509400090A586 /* c02App.swift */,
 				D39CD1B32B3509400090A586 /* ContentView.swift */,
+				D39CD1BF2B350AD10090A586 /* HomeKitManager.swift */,
 				D39CD1B52B3509410090A586 /* Assets.xcassets */,
 				D39CD1B72B3509410090A586 /* Preview Content */,
 			);
@@ -77,6 +109,7 @@
 				D39CD1AA2B3509400090A586 /* Sources */,
 				D39CD1AB2B3509400090A586 /* Frameworks */,
 				D39CD1AC2B3509400090A586 /* Resources */,
+				D36E96702B35DF1E0031A4F8 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -94,8 +127,8 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					D39CD1AD2B3509400090A586 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -139,6 +172,7 @@
 			files = (
 				D39CD1B42B3509400090A586 /* ContentView.swift in Sources */,
 				D39CD1B22B3509400090A586 /* c02App.swift in Sources */,
+				D39CD1C02B350AD10090A586 /* HomeKitManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +215,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -241,6 +276,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -264,12 +300,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = c02/c02.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"c02/Preview Content\"";
 				DEVELOPMENT_TEAM = 389F85SYY5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = c02/Info.plist;
+				INFOPLIST_KEY_NSHomeKitUsageDescription = "This app requires access to your home data to properly display information from your climate sensors.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -293,12 +334,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = c02/c02.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"c02/Preview Content\"";
 				DEVELOPMENT_TEAM = 389F85SYY5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = c02/Info.plist;
+				INFOPLIST_KEY_NSHomeKitUsageDescription = "This app requires access to your home data to properly display information from your climate sensors.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
