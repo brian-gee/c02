@@ -31,7 +31,7 @@
 		D36E96532B3526AA0031A4F8 /* c02.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = c02.entitlements; sourceTree = "<group>"; };
 		D36E965A2B35DF1D0031A4F8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		D36E965C2B35DF1D0031A4F8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		D39CD1AE2B3509400090A586 /* c02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = c02.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D39CD1AE2B3509400090A586 /* OpenAir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenAir.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D39CD1B12B3509400090A586 /* c02App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = c02App.swift; sourceTree = "<group>"; };
 		D39CD1B32B3509400090A586 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D39CD1B52B3509410090A586 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		D39CD1AF2B3509400090A586 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D39CD1AE2B3509400090A586 /* c02.app */,
+				D39CD1AE2B3509400090A586 /* OpenAir.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,9 +102,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D39CD1AD2B3509400090A586 /* c02 */ = {
+		D39CD1AD2B3509400090A586 /* OpenAir */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D39CD1BC2B3509410090A586 /* Build configuration list for PBXNativeTarget "c02" */;
+			buildConfigurationList = D39CD1BC2B3509410090A586 /* Build configuration list for PBXNativeTarget "OpenAir" */;
 			buildPhases = (
 				D39CD1AA2B3509400090A586 /* Sources */,
 				D39CD1AB2B3509400090A586 /* Frameworks */,
@@ -115,9 +115,9 @@
 			);
 			dependencies = (
 			);
-			name = c02;
+			name = OpenAir;
 			productName = c02;
-			productReference = D39CD1AE2B3509400090A586 /* c02.app */;
+			productReference = D39CD1AE2B3509400090A586 /* OpenAir.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -135,7 +135,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D39CD1A92B3509400090A586 /* Build configuration list for PBXProject "c02" */;
+			buildConfigurationList = D39CD1A92B3509400090A586 /* Build configuration list for PBXProject "OpenAir" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -148,7 +148,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D39CD1AD2B3509400090A586 /* c02 */,
+				D39CD1AD2B3509400090A586 /* OpenAir */,
 			);
 		};
 /* End PBXProject section */
@@ -310,6 +310,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = c02/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHomeKitUsageDescription = "This app requires access to your home data to properly display information from your climate sensors.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -323,9 +324,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.briang.c02;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -344,6 +348,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = c02/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHomeKitUsageDescription = "This app requires access to your home data to properly display information from your climate sensors.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -357,16 +362,19 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.briang.c02;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D39CD1A92B3509400090A586 /* Build configuration list for PBXProject "c02" */ = {
+		D39CD1A92B3509400090A586 /* Build configuration list for PBXProject "OpenAir" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D39CD1BA2B3509410090A586 /* Debug */,
@@ -375,7 +383,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D39CD1BC2B3509410090A586 /* Build configuration list for PBXNativeTarget "c02" */ = {
+		D39CD1BC2B3509410090A586 /* Build configuration list for PBXNativeTarget "OpenAir" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D39CD1BD2B3509410090A586 /* Debug */,

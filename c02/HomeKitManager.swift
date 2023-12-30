@@ -9,18 +9,12 @@ class HomeKitManager: NSObject, ObservableObject, HMHomeManagerDelegate {
     @Published var selectedAccessoryInfo: String = "Select an Accessory"
     @Published var sensorReadings: [SensorReading] = []
     // Separate properties for each sensor type
-    @Published var co2Level: String = "CO2:\n--"
-    @Published var no2Density: String = "NOx:\n--"
-    @Published var pm25Density: String = "PM2.5:\n--"
-    @Published var vocDensity: String = "TVOC:\n--"
-    @Published var temperature: String = "Temp:\n--"
-    @Published var humidity: String = "Humidity:\n--"
-    @Published var isCO2Visible: Bool = true
-    @Published var isTemperatureVisible: Bool = true
-    @Published var isHumidityVisible: Bool = true
-    @Published var isPM25Visible: Bool = true
-    @Published var isVOCVisible: Bool = true
-    @Published var isNO2Visible: Bool = true
+    @Published var co2Level: String = ""
+    @Published var no2Density: String = ""
+    @Published var pm25Density: String = ""
+    @Published var vocDensity: String = ""
+    @Published var temperature: String = ""
+    @Published var humidity: String = ""
     
     private var homeManager: HMHomeManager = HMHomeManager()
     private let selectedHomeKey = "SelectedHomeIdentifier"
@@ -80,7 +74,6 @@ class HomeKitManager: NSObject, ObservableObject, HMHomeManagerDelegate {
     
     private func refreshAirQualityValues() {
         guard let accessory = self.selectedAccessory else {
-            //            clearSensorValues()
             self.selectedAccessoryInfo = "No Accessory Selected"
             return
         }
@@ -111,31 +104,23 @@ class HomeKitManager: NSObject, ObservableObject, HMHomeManagerDelegate {
     }
     
     private func updateSensorReading(_ characteristic: HMCharacteristic) {
-        if let value = characteristic.value as? Float {
+        if let value = characteristic.value as? Int{
             switch characteristic.characteristicType {
             case HMCharacteristicTypeCarbonDioxideLevel:
-                co2Level = "CO2:\n\(value) ppm"
+                co2Level = "\(value)"
             case HMCharacteristicTypeNitrogenDioxideDensity:
-                no2Density = "NOx:\n\(value)"
+                no2Density = "\(value)"
             case HMCharacteristicTypePM2_5Density:
-                pm25Density = "PM2.5:\n\(value)"
+                pm25Density = "\(value)"
             case HMCharacteristicTypeVolatileOrganicCompoundDensity:
-                vocDensity = "TVOC:\n\(value)"
+                vocDensity = "\(value)"
             case HMCharacteristicTypeCurrentTemperature:
-                temperature = "Temp:\n\(round((value*1.8)+32))°F"
+                temperature = "\(round((Double(value)*1.8)+32))"
             case HMCharacteristicTypeCurrentRelativeHumidity:
-                humidity = "Humidity:\n\(value)%"
+                humidity = "\(value)"
             default: break
             }
         }
-    }
-    private func clearSensorValues() {
-        co2Level = "CO2:\n--"
-        no2Density = "NOx:\n--"
-        pm25Density = "PM2.5:\n--"
-        vocDensity = "TVOC:\n--"
-        temperature = "Temp:\n--"
-        humidity = "Humidity:\n--"
     }
 }
 
